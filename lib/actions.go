@@ -13,13 +13,15 @@ func init() {
 
 // Run each action
 // These are defined as the actions: in the yaml file
-func RunActions(actions []actions.TAction) error {
+func RunActions(actions []actions.TAction, actionToRun string) error {
 	for _, act := range actions {
-		fmt.Printf("Running %s\n", act.Name)
-		fmt.Println("---")
-		fmt.Printf("%s\n", act.Description)
-		fmt.Println("---")
-		return Actions[act.Action](act)
+		if act.Name == actionToRun {
+			fmt.Printf("Running %s\n", act.Name)
+			fmt.Println("---")
+			fmt.Printf("%s\n", act.Description)
+			fmt.Println("---")
+			return Actions[act.Action](act)
+		}
 	}
 	return nil
 }

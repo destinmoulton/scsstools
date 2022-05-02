@@ -5,7 +5,7 @@ type TAction struct {
 	Description string
 	Action      string
 	Watch       bool
-	SourcePath  string
+	SourcePath  string `yaml:"sourcepath"`
 	Sources     []string
 	Destination string
 }

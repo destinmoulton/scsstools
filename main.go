@@ -29,6 +29,5 @@ func main() {
 		os.Exit(-1)
 	}
 
-	fmt.Println(yaml)
-	lib.RunActions(yaml.Actions)
+	lib.RunActions(yaml.Actions, args["action"])
 }
