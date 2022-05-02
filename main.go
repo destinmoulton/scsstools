@@ -23,11 +23,12 @@ func main() {
 		os.Exit(-1)
 	}
 
-	actions, err := lib.ParseYAMLActions(args["file"])
+	yaml, err := lib.ParseYAMLActions(args["file"])
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(-1)
 	}
 
-	fmt.Println(actions)
+	fmt.Println(yaml)
+	lib.RunActions(yaml.Actions)
 }
