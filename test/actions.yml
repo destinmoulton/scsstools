@@ -1,7 +1,50 @@
 actions:
   - name: concat-bootstrap-core
-    description: Concatenate bootstrap components into one file
+    description: Concatenate Bootstrap core files into one file
     action: concat
     watch: no
-    sources: ["./test/scss/_one.scss"]
-    destination: "./text/dest/concat.scss"
+    sourcepath: "./test/concat/bootstrap/scss"
+    sources: ["_functions.scss","_variables.scss"]
+    destination: "./test/concat/concat.scss"
+  - name: concat-bootstrap-components
+    description: Concatenate Bootstrap components into a single file
+    action: concat
+    watch: no
+    destination: "./test/concat/bootstrap_components.scss"
+    sourcepath: "./test/concat/bootstrap/scss"
+    sources:
+        - "_mixins.scss"
+        - "_utilities.scss"
+        - "_root.scss"
+        - "_reboot.scss"
+        - "_type.scss"
+        - "_images.scss"
+        - "_containers.scss"
+        - "_grid.scss"
+        - "_tables.scss"
+        - "_forms.scss"
+        - "_buttons.scss"
+        - "_transitions.scss"
+        - "_dropdown.scss"
+        - "_button-group.scss"
+        - "_nav.scss"
+        - "_navbar.scss"
+        - "_card.scss"
+        - "_accordion.scss"
+        - "_breadcrumb.scss"
+        - "_pagination.scss"
+        - "_badge.scss"
+        - "_alert.scss"
+        - "_progress.scss"
+        - "_list-group.scss"
+        - "_close.scss"
+        - "_toasts.scss"
+        - "_modal.scss"
+        - "_tooltip.scss"
+        - "_popover.scss"
+        - "_carousel.scss"
+        - "_spinners.scss"
+        - "_offcanvas.scss"
+        - "_placeholders.scss"
+        - "_helpers.scss"
+        - "utilities/_api.scss"

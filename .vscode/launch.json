@@ -10,7 +10,7 @@
             "request": "launch",
             "mode": "auto",
             "program": "main.go",
-            "args": ["actions.yml", "concat-bootstrap-core"]
+            "args": ["test/actions.yml", "concat-bootstrap-components"]
         }
     ]
 }
