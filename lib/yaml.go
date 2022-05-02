@@ -5,19 +5,13 @@ import (
 	"io/ioutil"
 	"os"
 
+	"scsstools/lib/actions"
+
 	"gopkg.in/yaml.v2"
 )
 
-type TAction struct {
-	Name        string
-	Description string
-	Action      string
-	Watch       bool
-	Sources     []string
-	Destination string
-}
 type YAML struct {
-	Actions []TAction
+	Actions []actions.TAction
 }
 
 func ParseYAMLActions(yamlfile string) (*YAML, error) {
