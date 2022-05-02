@@ -1,0 +1,7 @@
+actions:
+  - name: concat-bootstrap-core
+    description: Compile bootstrap components into one file
+    action: concat
+    watch: no
+    sources: ["./test/scss/_one.scss"]
+    destination: "./text/dest/concat.scss"
