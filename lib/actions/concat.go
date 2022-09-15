@@ -10,6 +10,8 @@ import (
 	"regexp"
 )
 
+var processed []string
+
 // The concat action
 func Concat(action TAction) error {
 	sourceBase := action.SourcePath
@@ -91,11 +93,27 @@ func concatImports(fpath string) []string {
 					log.Fatalf("concat: %s file does not exist either\n", trypath)
 				}
 			}
-			lines = append(lines, concatImports(trypath)...)
+
+			if !contains(processed, trypath) {
+				processed = append(processed, trypath)
+				lines = append(lines, concatImports(trypath)...)
+			} else {
+				fmt.Printf("%s has already been concatenated. Doing nothing.\n", trypath)
+			}
 		} else {
 			lines = append(lines, line)
 		}
 
 	}
 	return lines
+}
+
+func contains(s []string, str string) bool {
+	for _, v := range s {
+		if v == str {
+			return true
+		}
+	}
+
+	return false
 }
