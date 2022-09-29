@@ -31,7 +31,8 @@ func Concat(action TAction) error {
 		lines = append(lines, concatImports(fp)...)
 	}
 
-	file, err := os.OpenFile(action.Destination, os.O_CREATE|os.O_WRONLY, 0644)
+	// Note the TRUNC flag to clear the file before writing
+	file, err := os.OpenFile(action.Destination, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
 
 	if err != nil {
 		log.Fatalf("concat: failed creating file: %s", err)
